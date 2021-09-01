@@ -4,4 +4,4 @@ COPY pom.xml /home/app
 RUN java -version
 RUN mvn -f /home/app/pom.xml clean install && ls -l /home/app/target/
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","/home/app/target//home/app/target/"]
+ENTRYPOINT ["java","-jar","/home/app/target/OpenShift-0.0.1-SNAPSHOT.jar"]
