@@ -5,7 +5,7 @@ RUN mvn -f /home/app/pom.xml clean install && ls -l /home/app/target/
 
 
 FROM openjdk:8u302-jdk
-COPY --from=build /home/app/target/OpenShift*.jar /usr/local/lib/OpenShift.jar
+COPY --from=build /home/app/target/OpenShift*.jar /home/app/OpenShift.jar
 EXPOSE 8080
 RUN java -version
-ENTRYPOINT ["java","-jar","/usr/local/lib/OpenShift.jar"]
+ENTRYPOINT ["java","-jar","/home/app/OpenShift.jar"]
